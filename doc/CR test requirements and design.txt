@@ -1,0 +1,69 @@
+----------------------
+CR Test Product Breif
+----------------------
+
+Create a SW tool for testing C code which generates C code test cases from a text based test case file.
+
+----------------------
+CR test requirements
+----------------------
+
+Stage 1
+Must use actual data types
+Must access module variables directly where possible 
+Must support time between tests and time before evaluation 
+Time must be relative to support future auto unpack features
+Provide stubs area for added control variables and functions
+Must provide results file
+The test case must support special for evaluation (= equals, < less than, > greater than)
+
+Stage 2
+Unpack feature for Boolean and ranges stimulus 
+Support range, greater than, less than evaluation
+Support gcov
+
+Test Case text file:
+-variable names
+- variable types
+- stimulus values, range (a..b..c, a start point, b resolution, c end point), boolean (X, 0 and 1)
+- expected values, =y equals, range (=a..c, a start point, c end point), less than (<y), greater than (>y)
+  , less than or equal (<=y), greater than or equal (>=y).
+
+Test Case C file:
+- Generate Test Case structure containing each of the stimulus variable types
+- Generate Test Case array of variable structure
+- Generate Test Case structure containing a control variable, one for each stimulas variable
+- Generate the stimulus function which updates the variables if the control variable directs
+- Generate the expected function which checks the variables based on the control variable direction
+- Name the file in the following format <testCaseName>_crtest.c and store in \output
+
+Interface file:
+- Provide a cyclic function to be populated by the user.
+- Rrovide a Post stimulus function to be populated by the user (optional, example use to set an array element or call a set function)
+- Rrovide a Pre expected function to be populated by the user (optional, example use to get value from an array or call a get function)
+
+Build Code:
+- Build all the required c file
+- Generate executable in the following format <testCaseName>_main.exe and store in \output
+
+Results File:
+- Port std out to a results file
+- Provide metrics, number of tests, time taken to execute.
+- Provide verbose option with each resultant test case line stimulus/actual store in a file (same or different ? log file)
+
+GCOV Results:
+- Add the results to the Main results file
+- Make GCOV option via config
+
+Main Engine:
+- Performs the above process for each test case file
+- Maintains an overall results file (as above)
+- Move/delete tempory file around as required.
+- Handle the run options/config
+
+----------------
+Product Design
+----------------
+
+
+

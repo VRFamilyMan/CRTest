@@ -1,0 +1,101 @@
+
+            CR TEST
+          User Manual
+
+Overview:
+
+The CR Test is a python based module tester for use with C code. 
+The test cases are in csv format and the contents is automatically generated in the c code arrays.
+The test case defines stimulus and evaluation critria.
+
+Operation:
+
+The following are the general steps in the CR Test process:
+Step 1.
+Reads in the config file
+Step 2.
+Finds all the <testcase>.csv files in the configured test case directory
+Step 3.
+Convert the <testcase>.csv file into c code via the crtest_tp.c template to create common_crtest.c
+Step 4.
+Build all required user c files (with the CR test core files main.c, common_crtest.c and crtest_stubs.c) as directed by the configuration.
+Step 5.
+Execute the resulting <testcase>_main.exe
+Step 6.
+If gcov required collect the output data for the test case file.
+Step 7.
+Repeat process from Step 3 to 6 for each <testcase>.csv file
+Step 8.
+If gcov required accumulate all the output data.
+Step 9.
+Finalise the final accumulated test results and cleanup the temp files.
+
+User interface:
+
+If test variables need to be processed before use or need to be passed to the MUT via a function, 
+user code can be added to void TestCase_PostStimulusUserStubs( const uint32_t testClock ) in crtest_stub.c.
+
+Main MUT function calls are performed in the user defined function void TestCase_CyclicUserStubs( const uint32_t testClock ) in crtest_stub.c.
+
+If test variables need to be processed after use or need to be retreved from the MUT via a function, 
+user code can be added to void TestCase_PreExpectedUserStubs( const uint32_t testClock ) in crtest_stub.c.
+
+Test Case user development:
+
+The first row of the csv file (excluding the first 2 columns) define all the required user test variable types. 
+The second row of the csv file (excluding the first 2 columns) define all the required user test variable names (aligned with their type above). 
+The header files required to support these variables and types must be directly or indirectly included in "crtest_stubs.c"
+This can be actual variables in the module under test (MUT) or external user variables required to support testing.
+An example of a external user support variable is a function control variable used with a switch statement to select the MUT function to be called.  
+
+The first column test variable called "Update_time" is a required internal CR test variable.
+It is the time/cycles between the last stimulas/evaluation pair and the next in this row. 
+The second column test variable called "Check_time" is also a required internal CR test variable.
+It is the time/cycles between the stimulas and the evaluation pair.
+The "Check_time" feature is defined and must be in the test case file, however it is not yet implemented.   
+Both these variables are relative time/cycles and not absolute (not accumulating). 
+This is to support the dynamic unpacking feature of CR test (example multiple stimulas/evaluation pairs in one line).
+
+The Req_Ref and Comment columns have no effect on the actual test cases but can be used for documentation purposes. 
+
+Stimulas control:
+All stimulas is loaded into the related test variable before the MUT function call is made. 
+
+"number"
+A single number (or enum) which will be loaded into the test variable. 
+
+"x" or "X"
+A "don't care" symbol will be unpacked into 2 stimulas/evaluation pairs, the first replaced be 0, and the second with 1. 
+
+"start..step..end"
+This range stimulas will be unpacked into the rounded up of ((end - start)/step) stimulas/evaluation pairs. 
+This feature only supports integer numbers and does not support enumerations.
+
+Evaluation control:
+
+"number="
+A single number (or enum) which is expected to be equal to test variable
+
+"number!="
+A single number (or enum) which is expected not to be equal to test variable
+
+"number<"
+A single number (or enum) which is expected to be less than the test variable
+
+"number>"
+A single number (or enum) which is expected to be greater than the test variable
+
+"number<="
+A single number (or enum) which is expected to be less than or equal to the test variable
+
+"number>="
+A single number (or enum) which is expected to be greater than or equal to the test variable
+
+"start..end="
+The test variable is equal to the range between and including start to end (number or enum)
+
+"start..end!="
+The test variable is not equal to the range between and including start to end (number or enum)
+
+NOTE: Generally the tool is tolerant of spaces however they should be avoided.
+

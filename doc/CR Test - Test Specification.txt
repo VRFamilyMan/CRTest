@@ -1,0 +1,80 @@
+    CR Test
+    Test Specification and Results
+
+Configuration Options:
+
+Config File - crTestAndConfig.txt
+Separate/All-in-one compiler/link     = All-in-one
+Specificed source/find in directory   = Specificed Source (one user file)
+Gcov Enabled/disabled                 = Yes
+
+Config File - crTestAndConfig2.txt
+Separate/All-in-one compiler/link     = Separate
+Specificed source/find in directory   = Specificed Source (two user file)
+Gcov Enabled/disabled                 = Yes
+
+Config File - crTestIntTestConfig.txt
+Separate/All-in-one compiler/link     = All-in-one
+Specificed source/find in directory   = Find in directory (zero user files)
+Gcov Enabled/disabled                 = Yes
+
+Config File - crTestCorrectConfig.txt
+Separate/All-in-one compiler/link     = All-in-one
+Specificed source/find in directory   = Find in directory (zero user files)
+Gcov Enabled/disabled                 = Yes
+
+
+Simulus Options:
+Boolean expansion (x):                                                              And1.csv
+
+General Test of Evaluation Options:
+Value Randomly generated                                                            
+
+Check that they all pass when expected - IntTest_GeneralAllPass.csv
+Value type uint8_t                                                                  
+Equal to (a=):                                                                      IT_0001
+Greater than (a<):                                                                  IT_0002
+Less than (a>):                                                                     IT_0003
+Greater than or equal (a<=): Greater than                                           IT_0004
+Greater than or equal (a<=): Equal                                                  IT_0005
+Less than or equal (a>=): Less than                                                 IT_0006
+Less than or equal (a>=): Equal                                                     IT_0007
+Not equal (a!=): above                                                              IT_0008
+Not equal (a!=): below                                                              IT_0009
+Equal to a Range (a..b=):                                                           IT_0010
+Not equal to a Range (a..b!=): above                                                IT_0011
+Not equal to a Range (a..b!=): below                                                IT_0012
+
+Value type uint16_t
+Equal to (a=):                                                                      IT_0013
+Greater than (a<):                                                                  IT_0014
+Less than (a>):                                                                     IT_0015
+Greater than or equal (a<=): Greater than                                           IT_0016
+Greater than or equal (a<=): Equal                                                  IT_0017
+Less than or equal (a>=): Less than                                                 IT_0018
+Less than or equal (a>=): Equal                                                     IT_0019
+Not equal (a!=): above                                                              IT_0020
+Not equal (a!=): below                                                              IT_0021
+Equal to a Range (a..b=):                                                           IT_0022
+Not equal to a Range (a..b!=): above                                                IT_0023
+Not equal to a Range (a..b!=): below                                                IT_0024
+
+Value type uint32_t
+Equal to (a=):                                                                      IT_0025
+Greater than (a<):                                                                  IT_0026
+Less than (a>):                                                                     IT_0027
+Greater than or equal (a<=): Greater than                                           IT_0028
+Greater than or equal (a<=): Equal                                                  IT_0029
+Less than or equal (a>=): Less than                                                 IT_0030
+Less than or equal (a>=): Equal                                                     IT_0031
+Not equal (a!=): above                                                              IT_0032
+Not equal (a!=): below                                                              IT_0033
+Equal to a Range (a..b=):                                                           IT_0034
+Not equal to a Range (a..b!=): above                                                IT_0035
+Not equal to a Range (a..b!=): below                                                IT_0036
+
+Check that they all fail when expected - IntTest_GeneralAllFail.csv
+
+Check Full ranges simulation passes as expected - IntTest_LargeUnpack.csv
+
+
