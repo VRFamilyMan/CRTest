@@ -1,0 +1,82 @@
+###############################
+# CR Test config file
+###############################
+# Comments must have # at the 
+# start of the line. When file 
+# is processed the entire line
+# is blanked out 
+###############################
+
+# Project Name is a single line entry
+ProjectName:
+And_Module
+
+# Compiler Executable is a single line entry
+CompilerExe:
+gcc
+
+# Compiler Options is a multi line entry
+CompilerOptions:
+-g
+-fprofile-arcs 
+-ftest-coverage 
+
+# Compiler Executable is a single line entry
+# If this is blank all in-one compile/link command will be used
+LinkerExe:
+
+# Linker Options is a multi line entry
+LinkerOptions:
+-g
+-Wall
+
+
+# Source Files to be built Listed is a multi line entry
+SourceFiles:
+..\Examples\And\src\And.c
+..\Examples\And\src\or.c
+
+# Source Files directory is a single line entry
+SourceFileDir:
+..\Examples\And\src
+
+# Source File Include Directory List is a multi line entry
+IncludeDirectories:
+-I ..\Examples\And\src
+
+# Source Files directory is a single line entry
+# If LinkerExe blank then this is ignored
+ObjectFileDir:
+
+
+# Gcov Enable Config is a single line entry
+# Gcov only works with the GCC compiler and should be disabled if other compiler used
+# Options here is either yes/YES/Yes to enable or anything else to disable
+GcovEnabled:
+YES
+
+# Source Files to be processed by gcov Listed is a multi line entry
+# Directories not require, just the file names
+GcovFiles:
+and.c
+or.c
+
+# Gcov output file storage location is a single line entry
+GcovOutputDir:
+..\Examples\And\output
+
+# Output file storage location is a single line entry
+OutputDir:
+..\Examples\And\output
+
+# Test Case file storage location is a single line entry
+TestCaseDir:
+..\Examples\And\testcases
+
+# Results file storage location is a single line entry
+ResultsDir:
+.\results
+
+# CRtest template file storage location is a single line entry
+TemplateDir:
+..\templates

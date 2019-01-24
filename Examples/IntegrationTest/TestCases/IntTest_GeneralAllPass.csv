@@ -1,0 +1,38 @@
+CR_Test,Types,uint8_t,uint8_t,uint16_t,uint16_t,uint32_t,uint32_t,,
+Update_time,Check_time,TestEvaluation,TestValue,TestEvaluation2,TestValue2,TestEvaluation3,TestValue3,Req_Ref,Comment
+10,0,224=,224,,,,,IT_0001,Equal to (a=):                            
+10,0,131<,140,,,,,IT_0002,Greater than (a<):                        
+10,0,228>,157,,,,,IT_0003,Less than (a>):                           
+10,0,11<=,193,,,,,IT_0004,Greater than or equal (a<=): Greater than 
+10,0,214<=,214,,,,,IT_0005,Greater than or equal (a<=): Equal        
+10,0,99>=,38,,,,,IT_0006,Less than or equal (a>=): Less than       
+10,0,1>=,1,,,,,IT_0007,Less than or equal (a>=): Equal           
+10,0,213!=,247,,,,,IT_0008,Not equal (a!=): above                    
+10,0,137!=,78,,,,,IT_0009,Not equal (a!=): below                    
+10,0,160..57=,129,,,,,IT_0010,Equal to a Range (a..b=):                 
+10,0,17..65!=,139,,,,,IT_0011,Not equal to a Range (a..b!=): above      
+10,0,1..101!=,0,,,,,IT_0012,Not equal to a Range (a..b!=): below      
+10,0,,,32274=,32274,,,IT_0013,Equal to (a=):                            
+10,0,,,52423<,65101,,,IT_0014,Greater than (a<):                        
+10,0,,,7947>,7294,,,IT_0015,Less than (a>):                           
+10,0,,,30126<=,52125,,,IT_0016,Greater than or equal (a<=): Greater than 
+10,0,,,7848<=,7848,,,IT_0017,Greater than or equal (a<=): Equal        
+10,0,,,33037>=,32174,,,IT_0018,Less than or equal (a>=): Less than       
+10,0,,,45501>=,45501,,,IT_0019,Less than or equal (a>=): Equal           
+10,0,,,20189!=,49853,,,IT_0020,Not equal (a!=): above                    
+10,0,,,25212!=,19593,,,IT_0021,Not equal (a!=): below                    
+10,0,,,2219..20582=,20554,,,IT_0022,Equal to a Range (a..b=):                 
+10,0,,,17937..2325!=,41608,,,IT_0023,Not equal to a Range (a..b!=): above      
+10,0,,,40679..63379!=,26372,,,IT_0024,Not equal to a Range (a..b!=): below      
+10,0,,,,,3971175207=,3971175207,IT_0025,Equal to (a=):                            
+10,0,,,,,1131204540<,1640568138,IT_0026,Greater than (a<):                        
+10,0,,,,,106404141>,85052793,IT_0027,Less than (a>):                           
+10,0,,,,,2396551520<=,3373926546,IT_0028,Greater than or equal (a<=): Greater than 
+10,0,,,,,325498983<=,325498983,IT_0029,Greater than or equal (a<=): Equal        
+10,0,,,,,1181226735>=,430657906,IT_0030,Less than or equal (a>=): Less than       
+10,0,,,,,1394565943>=,1394565943,IT_0031,Less than or equal (a>=): Equal           
+10,0,,,,,2414645336!=,3088785562,IT_0032,Not equal (a!=): above                    
+10,0,,,,,111422468!=,662921138,IT_0033,Not equal (a!=): below                    
+10,0,,,,,1069856101..1846943662=,1761847413,IT_0034,Equal to a Range (a..b=):                 
+10,0,,,,,4115861592..27349713!=,4267918496,IT_0035,Not equal to a Range (a..b!=): above      
+10,0,,,,,547027703..2106421822!=,467188608,IT_0036,Not equal to a Range (a..b!=): below      

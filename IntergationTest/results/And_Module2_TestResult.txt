@@ -1,0 +1,36 @@
+*************************************
+CR Test Version: 00.01.04
+*************************************
+Compiler Version:
+gcc (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 8.1.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Gcov Version:
+gcov (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 8.1.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or 
+FITNESS FOR A PARTICULAR PURPOSE.
+
+TEST RESULTS FOR And_Module2
+
+Test Case File: And.csv
+Test Complete: 81 out of 81 Tests PASSED    Simulated test time: 810ms 
+Test Case File: Or.csv
+Test Complete: 81 out of 81 Tests PASSED    Simulated test time: 810ms 
+
+Accumulated Gcov Output:
+
+Source File: and.c
+Functions called:    100.00% of 1
+Branches executed:   100.00% of 10
+Taken at least once: 100.00% of 10
+
+Source File: or.c
+Functions called:    100.00% of 1
+Branches executed:   100.00% of 10
+Taken at least once: 100.00% of 10
+
+Total Test duration 3sec.

@@ -1,0 +1,39 @@
+CR_Test,Types,uint8_t,uint8_t,uint16_t,uint16_t,uint32_t,uint32_t,,
+Update_time,Check_time,TestEvaluation,TestValue,TestEvaluation2,TestValue2,TestEvaluation3,TestValue3,Req_Ref,Comment
+10,0,224=,233,,,,,,Equal to (a=):                            
+10,0,131<,86,,,,,,Greater than (a<):                        
+10,0,228>,234,,,,,,Less than (a>):                           
+10,0,11<=,8,,,,,,Greater than or equal (a<=): Greater than 
+10,0,214<=,179,,,,,,Greater than or equal (a<=): Equal        
+10,0,99>=,185,,,,,,Less than or equal (a>=): Less than       
+10,0,1>=,37,,,,,,Less than or equal (a>=): Equal           
+10,0,213!=,213,,,,,,Not equal (a!=): above                    
+10,0,137!=,137,,,,,,Not equal (a!=): below                    
+10,0,160..57=,189,,,,,,Equal to a Range (a..b=): fail above                 
+10,0,17..65=,3,,,,,,Equal to a Range (a..b=): fail below                
+10,0,1..101!=,28,,,,,,Not equal to a Range (a..b!=): below      
+
+10,0,,,32274=,32274,,,,Equal to (a=):                            
+10,0,,,52423<,65101,,,,Greater than (a<):                        
+10,0,,,7947>,7294,,,,Less than (a>):                           
+10,0,,,30126<=,52125,,,,Greater than or equal (a<=): Greater than 
+10,0,,,7848<=,7848,,,,Greater than or equal (a<=): Equal        
+10,0,,,33037>=,32174,,,,Less than or equal (a>=): Less than       
+10,0,,,45501>=,45501,,,,Less than or equal (a>=): Equal           
+10,0,,,20189!=,49853,,,,Not equal (a!=): above                    
+10,0,,,25212!=,19593,,,,Not equal (a!=): below                    
+10,0,,,2219..20582=,20554,,,,Equal to a Range (a..b=):                 
+10,0,,,17937..2325!=,41608,,,,Not equal to a Range (a..b!=): above      
+10,0,,,40679..63379!=,26372,,,,Not equal to a Range (a..b!=): below      
+10,0,,,,,3971175207=,3971175207,,Equal to (a=):                            
+10,0,,,,,1131204540<,1640568138,,Greater than (a<):                        
+10,0,,,,,106404141>,85052793,,Less than (a>):                           
+10,0,,,,,2396551520<=,3373926546,,Greater than or equal (a<=): Greater than 
+10,0,,,,,325498983<=,325498983,,Greater than or equal (a<=): Equal        
+10,0,,,,,1181226735>=,430657906,,Less than or equal (a>=): Less than       
+10,0,,,,,1394565943>=,1394565943,,Less than or equal (a>=): Equal           
+10,0,,,,,2414645336!=,3088785562,,Not equal (a!=): above                    
+10,0,,,,,111422468!=,662921138,,Not equal (a!=): below                    
+10,0,,,,,1069856101..1846943662=,1761847413,,Equal to a Range (a..b=):                 
+10,0,,,,,4115861592..27349713!=,4267918496,,Not equal to a Range (a..b!=): above      
+10,0,,,,,547027703..2106421822!=,467188608,,Not equal to a Range (a..b!=): below      
