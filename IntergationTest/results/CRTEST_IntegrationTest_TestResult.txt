@@ -1,0 +1,19 @@
+*************************************
+CR Test Version: 00.01.04
+*************************************
+Compiler Version:
+gcc (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 8.1.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+TEST RESULTS FOR CRTEST_IntegrationTest
+
+Test Case File: IntTest_GeneralAllFail.csv
+Test Complete: 12 out of 12 Tests Failed    Simulated test time: 120ms 
+Test Case File: IntTest_GeneralAllPass.csv
+Test Complete: 36 out of 36 Tests PASSED    Simulated test time: 360ms 
+Test Case File: IntTest_LargeUnpack.csv
+Test Complete: 8673 out of 8673 Tests PASSED    Simulated test time: 86730ms 
+
+Total Test duration 78sec.
