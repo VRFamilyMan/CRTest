@@ -1,0 +1,7 @@
+# Correct module output directory
+
+*.gcov
+*.txt
+*.c
+*.exe
+
