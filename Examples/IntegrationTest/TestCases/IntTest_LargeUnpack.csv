@@ -1,5 +1,5 @@
 CR_Test,Types,uint8_t,uint8_t,uint16_t,uint16_t,uint32_t,uint32_t,,
 Update_time,Check_time,TestEvaluation,TestValue,TestEvaluation2,TestValue2,TestEvaluation3,TestValue3,Req_Ref,Comment
-10,0,255!=,0..1..254,,,,,,
-10,0,,,65535!=,0..11..65534,,,,
-10,0,,,,,4294967295!=,,,0..1747623..4294967294
+10,0,0xFF!=,0..1..254,,,,,,
+10,0,,,0xFFFF!=,0..11..65534,,,,
+10,0,,,,,0xFFFFFFFF!=,,,0..1747623..4294967294

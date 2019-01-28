@@ -15,5 +15,7 @@ Test Case File: IntTest_GeneralAllPass.csv
 Test Complete: 36 out of 36 Tests PASSED    Simulated test time: 360ms 
 Test Case File: IntTest_LargeUnpack.csv
 Test Complete: 8673 out of 8673 Tests PASSED    Simulated test time: 86730ms 
+Test Case File: IntTest_LargeUnpack2.csv
+Test Complete: 8673 out of 8673 Tests PASSED    Simulated test time: 86730ms 
 
-Total Test duration 78sec.
+Total Test duration 169sec.
