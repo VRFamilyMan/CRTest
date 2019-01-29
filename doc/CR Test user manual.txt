@@ -8,6 +8,22 @@ The CR Test is a python based module tester for use with C code.
 The test cases are in csv format and the contents is automatically generated in the c code arrays.
 The test case defines stimulus and evaluation critria.
 
+Structure:
+
+.\doc                        - CRTest documentation Only
+.\Example\And\               - And Module Example        (not required for CRTest)
+.\Example\Correct\           - Correct Module Example    (not required for CRTest)
+.\Example\IntegrationTest\   - Integration Test Module   (not required for CRTest)
+.\IntegrationTest\result\    - Integration Test Results  (not required for CRTest)
+.\scripts\                   - CRTest core python scripts (required for CRTest, can be centrely located)
+.\Template\                  - CRTest core templat files  (required for CRTest, can be centrely located)
+.\And_Module_TestResult.txt  - And module Example test results 
+.\crTestAnd.bat              - Example bat file 
+.\crTestAndConfig.txt        - Example configuration file
+.\LICENSE                    - Licence file
+.\README.md                  - CRTEST project readme
+
+
 Operation:
 
 The following are the general steps in the CR Test process:
@@ -59,10 +75,10 @@ This is to support the dynamic unpacking feature of CR test (example multiple st
 The Req_Ref and Comment columns have no effect on the actual test cases but can be used for documentation purposes. 
 
 Stimulas control:
-All stimulas is loaded into the related test variable before the MUT function call is made. 
+All stimulas is loaded into the related test variables before the MUT function call is made. 
 
 "number"
-A single number (or enum) which will be loaded into the test variable. 
+A single number (or enum, 0x0, 0b0) which will be loaded into the test variable. 
 
 "x" or "X"
 A "don't care" symbol will be unpacked into 2 stimulas/evaluation pairs, the first replaced be 0, and the second with 1. 
@@ -74,28 +90,28 @@ This feature only supports integer numbers and does not support enumerations.
 Evaluation control:
 
 "number="
-A single number (or enum) which is expected to be equal to test variable
+A single number (or enum, 0x0, 0b0) which is expected to be equal to test variable
 
 "number!="
-A single number (or enum) which is expected not to be equal to test variable
+A single number (or enum, 0x0, 0b0) which is expected not to be equal to test variable
 
 "number<"
-A single number (or enum) which is expected to be less than the test variable
+A single number (or enum, 0x0, 0b0) which is expected to be less than the test variable
 
 "number>"
-A single number (or enum) which is expected to be greater than the test variable
+A single number (or enum, 0x0, 0b0) which is expected to be greater than the test variable
 
 "number<="
-A single number (or enum) which is expected to be less than or equal to the test variable
+A single number (or enum, 0x0, 0b0) which is expected to be less than or equal to the test variable
 
 "number>="
-A single number (or enum) which is expected to be greater than or equal to the test variable
+A single number (or enum, 0x0, 0b0) which is expected to be greater than or equal to the test variable
 
 "start..end="
-The test variable is equal to the range between and including start to end (number or enum)
+The test variable is equal to the range between and including start to end (number or enum, 0x0, 0b0)
 
 "start..end!="
-The test variable is not equal to the range between and including start to end (number or enum)
+The test variable is not equal to the range between and including start to end (number or enum, 0x0, 0b0)
 
 NOTE: Generally the tool is tolerant of spaces however they should be avoided.
 
