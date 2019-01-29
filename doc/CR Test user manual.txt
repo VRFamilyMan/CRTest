@@ -115,3 +115,24 @@ The test variable is not equal to the range between and including start to end (
 
 NOTE: Generally the tool is tolerant of spaces however they should be avoided.
 
+
+AND Module Example:
+
+The And Module is ready to run, just ensure the compiler and python path is correct for your location 
+in the crTestAnd.bat.
+
+If you wish to use a different compiler (example uses MinGW) then simply update the compiler executable 
+configuration (section CompilerExe:) in crTestAndConfig.txt. You may also need to change some compiler 
+options under the CompilerOptions: section. Everything in the config file is simple concatenated together 
+the form files and paths, and to build the executable.
+
+Please note that if gcc is not used disable GCOV via the GcovEnabled: section.
+
+The AND module is a simple example and also highlights that although the test cases parameter "Update_time" 
+implies time, in this case time is really just test iterations. To aid in this understand the "Update_time" 
+could be specified as 1 and not 10 as in the example test case. However to has no bearing on whether the 
+test passes or fails.
+
+The AND module also high lights the use of the unpacking feature in the test cases with the use of x. Each 
+x is unpacked into 2 rows, one with a 0 and the other with a 1. For boolean expressions this feature is 
+very useful. 
