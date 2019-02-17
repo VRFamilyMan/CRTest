@@ -8,7 +8,7 @@
 //User stubs as values only accessable via functions 
 uint8_t aa,bb,cc,dd,ee;
 uint8_t aa2,bb2,cc2,dd2,ee2;
-uint8_t result;
+AndResult_Types result;
 uint8_t result2;
 
 //User populates if variable needs to be passed to the module via a function or other type

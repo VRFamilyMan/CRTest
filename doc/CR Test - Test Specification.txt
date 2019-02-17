@@ -5,22 +5,22 @@ Configuration Options:
 
 Config File - crTestAndConfig.txt
 Separate/All-in-one compiler/link     = All-in-one
-Specificed source/find in directory   = Specificed Source (one user file)
+Specificed source/find in directory   = Specificed Source (two user file in different directories)
 Gcov Enabled/disabled                 = Yes
 
 Config File - crTestAndConfig2.txt
 Separate/All-in-one compiler/link     = Separate
-Specificed source/find in directory   = Specificed Source (two user file)
+Specificed source/find in directory   = Specificed Source (two user file in different directories)
 Gcov Enabled/disabled                 = Yes
 
 Config File - crTestIntTestConfig.txt
 Separate/All-in-one compiler/link     = All-in-one
-Specificed source/find in directory   = Find in directory (zero user files)
+Specificed source/find in directory   = Specificed Source (one user file)
 Gcov Enabled/disabled                 = Yes
 
 Config File - crTestCorrectConfig.txt
 Separate/All-in-one compiler/link     = All-in-one
-Specificed source/find in directory   = Find in directory (zero user files)
+Specificed source/find in directory   = Specificed Source (one user file)
 Gcov Enabled/disabled                 = Yes
 
 

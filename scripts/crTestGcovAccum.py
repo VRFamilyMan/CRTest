@@ -11,13 +11,13 @@ def gcovOutputGen(gcovFileLineData):
     outputString = ''
     
     for line in gcovFileLineData:
-        if re.search('function', line):
+        if re.search('^(function)', line):
             functionData.append(line)
             #print(line)
-        elif re.search('call', line):
+        elif re.search('^(call)', line):
             callData.append(line)
             #print(line)
-        elif re.search('branch', line):
+        elif re.search('^(branch)', line):
             branchData.append(line)    
             #print(line)
     

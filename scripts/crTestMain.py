@@ -55,14 +55,14 @@ if args.configFile:
         raw_file_data = fh.read()
         fh.close()
         configLineData = raw_file_data.split('\n')
-        tempFile = ''
-        #remove comments
-        #for line in configLineData:
-        #    if re.search('#*',line):
+        #configLineData = ''
+        ##remove comments
+        #for line in tempconfigLineData:
+        #    if re.search('^#',line):
         #        pass
         #    else:
-        #        tempFile = tempFile + line
-        #configLineData = tempFile
+        #        configLineData = configLineData + line
+        ##configLineData = tempFile
 else:
     try:
         fh = open('crTestConfig.txt', 'r')
@@ -249,28 +249,21 @@ print(projectName + " test in progress, please wait.....\n")
 # Source File Handling
 sourceString = ''
 
-# If no files configured then will search in the configured sourceFileDir
+# Files must be included in the sourcefiles config
 # Will exclude any of the files if they are included in the crtest_stubs.c file
-if not sourceDirAndFileList:
-    # Find all the c files
-    tempsourceDirAndFileList = glob.glob(sourceFileDir + '\*.c')
-    #check if there is any
-    if not tempsourceDirAndFileList:
-        print('\n')
-        print('No Source files found')
-        print('CRTest aborted')
-        print('\n')
-        sys.exit()
-    else:
-        sourceFileOnlyList = []
-        sourceFileControl = []
-        temp = []
+if sourceDirAndFileList:
+
+    sourceFileOnlyList = []
+    sourceFileControl = []
+    dirFilesplit = []
+    temp = []
 
     #remove the directory struct and initialise the control block for each source file
-    for file in tempsourceDirAndFileList:
+    for file in sourceDirAndFileList:
         sourceFileControl.append('REQUIRED')
-        file = file.replace(sourceFileDir + '\\','')
-        temp.append(file)
+        dirFilesplit = file.split('\\')
+        #file = file.replace(sourceFileDir + '\\','')
+        temp.append(dirFilesplit[-1])
     sourceFileOnlyList = temp
 
     # open the provided cr test stubs file
@@ -290,11 +283,14 @@ if not sourceDirAndFileList:
 
     #search the stubs file to see in c files have been directly included
     #if yes these files don't need to be built
+    #print(*sourceFileOnlyList)
     srcFileCount = 0
     for file in sourceFileOnlyList:
         #check each line in the stubs c file for included c files
         for line in stubsLineData:
-            if re.search(file, line):
+            tempLine = line.lower()
+            tempFile = file.lower()
+            if re.search(tempFile, tempLine):
                 sourceFileControl[srcFileCount] = 'NOT_REQUIRED'
                 if re.search('(yes|YES|Yes)', gcovEnabled):
                     # Updating gcov control, example
@@ -304,25 +300,30 @@ if not sourceDirAndFileList:
                             # mark gcov control as file "NOT EXIST" as it is included in test Case
                             gcovSourceFileControl[count] = 'NOT_EXIST'
                         count = count + 1
-        #also check for the stubs file and exclude as it is also included in test case c file
-        if re.search(crTest_stubFile, file):
-            sourceFileControl[srcFileCount] = 'NOT_REQUIRED'
         srcFileCount = srcFileCount + 1
+    
+    #Stubs file NOT added to source list as it is always included in generated test case file
+    #Add the crtest generated c file to the directory and file list
+    sourceDirAndFileList.append(sourceFileDir + '\\' + crTest_CaseCFile)
+    sourceFileOnlyList.append(crTest_CaseCFile)
+    sourceFileControl.append('REQUIRED')
+    srcFileCount = srcFileCount + 1
         
     srcFileCtrlCount = 0
-    for sourceFile in tempsourceDirAndFileList:
+    for sourceFile in sourceDirAndFileList:
         if sourceFileControl[srcFileCtrlCount] == "REQUIRED":
             sourceString = sourceString + sourceFile + ' '
-            sourceDirAndFileList.append(sourceFile)
+            #sourceDirAndFileList.append(sourceFile)
         srcFileCtrlCount = srcFileCtrlCount + 1
     
 else:
-    #Add the generated test case C file to the source list
-    #the file defined in crTest_stubFile is never build as it is include in the Test Case C file template
-    sourceDirAndFileList.append(sourceFileDir + '\\' + crTest_CaseCFile)
-    
-    for sourceFile in sourceDirAndFileList:
-        sourceString = sourceString + sourceFile + ' '
+    print('\n')
+    print('No Source files found')
+    print('CRTest aborted')
+    print('\n')
+    sys.exit()
+
+
 
 #print(sourceFileOnlyList)
 #print(sourceFileControl)

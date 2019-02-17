@@ -18,6 +18,7 @@ gcc
 # Compiler Options is a multi line entry
 CompilerOptions:
 -g
+-Wall
 -fprofile-arcs 
 -ftest-coverage 
 
@@ -27,14 +28,16 @@ LinkerExe:
 
 # Linker Options is a multi line entry
 LinkerOptions:
--g
--Wall
+
 
 
 # Source Files to be built Listed is a multi line entry
+# This is the location of the crtest_stubs file
+# It will also be the directory where the generated 
+# test case c files will be written
 SourceFiles:
 ..\Examples\And\src\And.c
-..\Examples\And\src\or.c
+..\Examples\And\src2\or.c
 
 # Source Files directory is a single line entry
 SourceFileDir:
@@ -43,6 +46,7 @@ SourceFileDir:
 # Source File Include Directory List is a multi line entry
 IncludeDirectories:
 -I ..\Examples\And\src
+-I ..\Examples\And\src2
 
 # Source Files directory is a single line entry
 # If LinkerExe blank then this is ignored

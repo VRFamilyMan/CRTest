@@ -1,4 +1,4 @@
-CR_Test,Types,uint8_t,uint8_t,uint8_t,uint8_t,uint8_t,uint8_t,,
+CR_Test,Types,uint8_t,uint8_t,uint8_t,uint8_t,uint8_t,AndResult_Types,,
 Update_time,Check_time,aa,bb,cc,dd,ee,result,Req_Ref,Comment
 10,0,0,x,x,x,x,0=,,
 10,0,x,0,x,x,x,0=,,

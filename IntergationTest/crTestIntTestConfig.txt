@@ -31,8 +31,11 @@ LinkerOptions:
 
 
 # Source Files to be built Listed is a multi line entry
+# This is the location of the crtest_stubs file
+# It will also be the directory where the generated 
+# test case c files will be written
 SourceFiles:
-
+..\Examples\IntegrationTest\src\dummy.c
 
 # Source Files directory is a single line entry
 SourceFileDir:

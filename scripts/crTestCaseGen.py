@@ -185,8 +185,8 @@ def testCaseCodeGen(sourceTemplate, headerTemplate, testCaseDirAndFile, testCase
         #print(line)
         if re.search('CR_Test,Types', line):
             sectionfound = 1
-            line = line.replace('CR_Test,','')
-            line = line.replace('Types,','')
+            line = line.replace('CR_Test,','',1) #only replace the first as the string "Types" may occur else where in row 
+            line = line.replace('Types,','',1) #only replace the first as the string "Types" may occur else where in row 
             variableTypes = line.split(',')
             break
     if sectionfound is 0:
@@ -198,8 +198,8 @@ def testCaseCodeGen(sourceTemplate, headerTemplate, testCaseDirAndFile, testCase
         #print(line)
         if re.search('Update_time,Check_time', line):
             sectionfound = 1
-            line = line.replace('Update_time,','')
-            line = line.replace('Check_time,','')
+            line = line.replace('Update_time,','',1) #only replace the first as the string "Types" may occur else where in row 
+            line = line.replace('Check_time,','',1) #only replace the first as the string "Types" may occur else where in row 
             variableNames = line.split(',')
             #print(variableNames)
             count = 0
@@ -250,11 +250,11 @@ def testCaseCodeGen(sourceTemplate, headerTemplate, testCaseDirAndFile, testCase
         else:
             sectionfound = 1
             #Check if the row has any text
-            if re.search('[a-zA-Z0-9][a-zA-Z0-9_]*', line):
+            if re.search('[a-zA-Z0-9][a-zA-Z0-9_,]*', line):
                 actualTestData.append(line)
                 #Add the row to the raw row string with c code sytax, after removing the Reg_Ref
                 rawRowString = rawRowString + "    \"" + line + "\",\n"
-            else:
+            else:                
                 break
     if sectionfound is 0:
         print("Warning: No Test Data found. \n")

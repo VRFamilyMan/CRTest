@@ -1,12 +1,14 @@
 #include "crtest_stubs.h"
 
 //Add User module under Test here. Include the c files if you wish to access static variables / functions 
-
+#include "dummy.c"
 
 //User stubs as values only accessable via functions 
 uint8_t TestValue,TestEvaluation;
 uint16_t TestValue2,TestEvaluation2;
 uint32_t TestValue3,TestEvaluation3;
+
+uint8_t TestValue = 0;
 
 //User populates if variable needs to be passed to the module via a function or other type
 void TestCase_InitUserStubs( void )
@@ -24,6 +26,7 @@ void TestCase_PostStimulusUserStubs( const uint32_t testClock )
 void TestCase_CyclicUserStubs( const uint32_t testClock )
 {
     // Load Evaluation Value with the test Value so no external code required
+    dummy_function();
     TestEvaluation  = TestValue;
     TestEvaluation2 = TestValue2;
     TestEvaluation3 = TestValue3;

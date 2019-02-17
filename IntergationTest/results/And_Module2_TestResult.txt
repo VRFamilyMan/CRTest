@@ -33,4 +33,4 @@ Functions called:    100.00% of 1
 Branches executed:   100.00% of 10
 Taken at least once: 100.00% of 10
 
-Total Test duration 3sec.
+Total Test duration 6sec.

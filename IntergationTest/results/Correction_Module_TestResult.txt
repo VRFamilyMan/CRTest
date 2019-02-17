@@ -12,4 +12,4 @@ TEST RESULTS FOR Correction_Module
 Test Case File: correction1.csv
 Test Complete: 6 out of 6 Tests PASSED    Simulated test time: 60ms 
 
-Total Test duration 0sec.
+Total Test duration 1sec.

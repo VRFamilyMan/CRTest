@@ -30,6 +30,9 @@ LinkerOptions:
 -Wall
 
 # Source Files to be built Listed is a multi line entry
+# This is the location of the crtest_stubs file
+# It will also be the directory where the generated 
+# test case c files will be written
 SourceFiles:
 ..\Examples\Correct\src\Correction.c
 
