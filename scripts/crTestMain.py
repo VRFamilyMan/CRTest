@@ -16,7 +16,7 @@ import crTestCaseGen
 
 #************CR UNIT TEST VERSION STRING **********************
 
-crTestVersion = '00.01.04'
+crTestVersion = '00.01.05'
 
 #*********** CR UNIT TESTER SPECIAL FILES *********************
 crTest_sourceTemplateFile = 'crtest_tp.c'
