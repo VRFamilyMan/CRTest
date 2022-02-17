@@ -76,11 +76,16 @@ def gcovMasterMerge(gcovFileLineData, gcovMasterFileLineData):
     
     newMaster = []
     
+    #Accumulate the branch data
     count = 0
     tempGcovLine = []
     tempMasterGcovLine = []
-    for line in gcovFileLineData: 
+    for line in gcovFileLineData:
         if re.search('branch', line) and re.search('branch', gcovMasterFileLineData[count]):
+            #replace all the "never executed" with "taken 0%"
+            #line = line.replace('never executed','taken 0%')
+            #gcovMasterFileLineData[count] = gcovMasterFileLineData[count].replace('never executed','taken 0%')
+            
             tempGcovLine = line.split(' ')
             tempGcovLine[4] = tempGcovLine[4].replace('%','')
             tempMasterGcovLine = gcovMasterFileLineData[count].split(' ')
@@ -106,7 +111,41 @@ def gcovMasterMerge(gcovFileLineData, gcovMasterFileLineData):
         else:
             newMaster.append(gcovMasterFileLineData[count])
         count = count + 1
-    return newMaster
+        
+    #Accumulate the function data
+    newMaster2 = []
+    count = 0
+    tempGcovLine = []
+    tempMasterGcovLine = []
+    for line in gcovFileLineData: 
+        if re.search('function', line) and re.search('function', newMaster[count]):
+            tempGcovLine = line.split(' ')
+            tempGcovLine[3] = tempGcovLine[3].replace('%','')
+            tempMasterGcovLine = newMaster[count].split(' ')
+            tempMasterGcovLine[3] = tempMasterGcovLine[3].replace('%','')
+            #print(tempGcovLine[3] + "  " + tempMasterGcovLine[3])
+            if tempGcovLine[3].isdigit():
+                if tempMasterGcovLine[3].isdigit():
+                    if int(tempGcovLine[3]) < int(tempMasterGcovLine[3]):
+                        newMaster2.append(newMaster[count])
+                        #print(newMaster[count])
+                    else:
+                        newMaster2.append(line)
+                        #print(line)
+                else:
+                    newMaster2.append(line)
+                    #print(line)
+            else:
+                if tempMasterGcovLine[3].isdigit():
+                    newMaster2.append(newMaster[count])
+                    #print(newMaster[count])
+                else:
+                    newMaster2.append(gcovMasterFileLineData[count])
+        else:
+            newMaster2.append(gcovMasterFileLineData[count])
+        count = count + 1
+        
+    return newMaster2
 
 if __name__ == '__main__':
     import argparse

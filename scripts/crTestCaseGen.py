@@ -488,11 +488,13 @@ def testCaseCodeGen(sourceTemplate, headerTemplate, testCaseDirAndFile, testCase
     raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV1##', '##VarName##', '##NL##', variableNames)
     raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV2##', '##VarName##', '##NL##', variableNames)
     raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV3##', '##VarName##', '##NL##', variableNames)
-    raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV4##', '##VarName##', '##NL##', variableNames)
+    #raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV4##', '##VarName##', '##NL##', variableNames)
     raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV5##', '##VarName##', '##NL##', variableNames)
+    #raw_sourceFile = crTemplate.varMLTemplateGen(raw_sourceFile, '##TestCase_ExpectedV6##', '##VarName##', '##NL##', variableNames)
     # Variable Check function
     raw_sourceFile = crTemplate.varAndTypeMLTemplateGen(raw_sourceFile, '##TestCase_VarCheckFn1##', '##VarName##', '##VarType##', '##NL##', variableNames, variableTypes)
     raw_sourceFile = crTemplate.varAndTypeMLTemplateGen(raw_sourceFile, '##TestCase_VarCheckFn2##', '##VarName##', '##VarType##', '##NL##', variableNames, variableTypes)
+    raw_sourceFile = crTemplate.varAndTypeMLTemplateGen(raw_sourceFile, '##TestCase_VarCheckFn3##', '##VarName##', '##VarType##', '##NL##', variableNames, variableTypes)
 
     # HEADER FILE GENERATOR
     #search for the key words to replace with c code
