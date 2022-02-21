@@ -124,9 +124,7 @@ uint8_t TestCase_Expected( const uint32_t testClock, uint32_t * const NumberPass
     uint8_t allTestFinished = 0;
     uint32_t tempPassed = * NumberPassed_pt;
     uint32_t tempFailed = * NumberFailed_pt;
-#if (NUMBER_OF_RANGE_ROWS > 0)
-    uint32_t CurrentRangeIndex = RangeIndex;
-#endif
+    
 ##TestCase_ExpectedV1##    uint8_t ##VarName##_check = 1;
     if(TestCase_Control[TestNumber].updateTime == testClock) 
     {
@@ -137,7 +135,7 @@ uint8_t TestCase_Expected( const uint32_t testClock, uint32_t * const NumberPass
 ##TestCase_ExpectedFn##                                                           TestCase_ValuesMax[RangeIndex].##VarName##,
 ##TestCase_ExpectedFn###endif
 ##TestCase_ExpectedFn##                                                           ##VarName##);
-
+        
         //Check if a evaluation Range was used and if yes increament RangeIndex
         if( 
 ##TestCase_ExpectedV5##            (TestCase_Control[TestNumber].##VarName##_Control == TC_RANGE_EQUAL ) || (TestCase_Control[TestNumber].##VarName##_Control == TC_RANGE_NOT_EQU) ||
@@ -158,7 +156,7 @@ uint8_t TestCase_Expected( const uint32_t testClock, uint32_t * const NumberPass
             //Passed Test Case output with just Actual
             printf("Raw Test Case: %s\n", testCaseString[TestNumber]);
             printf("Passes Actual: %d", TestCase_Control[TestNumber].updateTime);
-##TestCase_ExpectedV3##            printf(", %d", ##VarName##);
+##TestCase_ExpectedV3##            printf(", %d", TestCase_Values[TestNumber].##VarName##);
             printf("\n");
             
             tempPassed++;
@@ -169,17 +167,10 @@ uint8_t TestCase_Expected( const uint32_t testClock, uint32_t * const NumberPass
         {
             //Failed Test Case output with both expected and actual, 
             //add 3 to the TestNumber, 2 for the header rows in test case, + 1 as row start at 1 not 0
-            printf("\nTest Case Row No: %d -> FAILED \n", TestNumber + 3);
+            printf("Test Case Row No: %d -> FAILED \n", TestNumber + 3);
             printf("Raw Test Case: %s\n", testCaseString[TestNumber]);
-            printf("Failure Data:\nTest Clock: %d\n", testClock);
-##TestCase_VarCheckFn3##        if( 0U == ##VarName##_check ) 
-##TestCase_VarCheckFn3##        {
-##TestCase_VarCheckFn3##            printf("Expected: ##VarName## = %d", TestCase_Values[TestNumber].##VarName##);
-##TestCase_VarCheckFn3###if (NUMBER_OF_RANGE_ROWS > 0)
-##TestCase_VarCheckFn3##            printf(" to %d", TestCase_ValuesMax[CurrentRangeIndex].##VarName##);
-##TestCase_VarCheckFn3###endif
-##TestCase_VarCheckFn3##            printf("\nActual:   ##VarName## = %d\n", ##VarName##);
-##TestCase_VarCheckFn3##        }
+            printf("Failed Actual: %d", testClock);
+##TestCase_ExpectedV4##            printf(", %d", ##VarName##);
             printf("\n");
             
             tempFailed++;
